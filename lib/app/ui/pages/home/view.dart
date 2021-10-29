@@ -1,7 +1,6 @@
 import 'package:clean_arc_flutter/app/infrastructure/app_component.dart';
 import 'package:clean_arc_flutter/app/ui/pages/home/controller.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:clean_arc_flutter/app/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends View {
@@ -12,7 +11,7 @@ class HomePage extends View {
       new _HomePageState(AppComponent.getInjector().get<HomeController>());
 }
 
-class _HomePageState extends ViewState<HomePage, HomeController>
+class _HomePageState extends ViewState<HomePage, HomeController> 
     with WidgetsBindingObserver {
   _HomePageState(HomeController controller) : super(controller);
 
@@ -36,12 +35,7 @@ class _HomePageState extends ViewState<HomePage, HomeController>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
-                child: Text('Button 1'),
-                onPressed: () {
-                  Navigator.pushNamed(context, Pages.profile);
-                },
-              ),
+              SearchPage(Nama: controller.sp.name!,)
             ],
           ),
         ),

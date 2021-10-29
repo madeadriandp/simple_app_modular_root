@@ -5,6 +5,7 @@ import 'package:clean_arc_flutter/app/ui/pages/pages.dart';
 import 'package:clean_arc_flutter/data/payload/api/auth/login_api_payload.dart';
 import 'package:clean_arc_flutter/domains/entities/user.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginController extends BaseController {
   LoginPresenter _presenter;
@@ -59,6 +60,7 @@ class LoginController extends BaseController {
       print("Data User sp ${_userData.name}");
 
       dismissLoading();
+      Modular.to.pushReplacementNamed('/MainPage');
       Navigator.pushReplacementNamed(getContext(), Pages.main);
     };
 

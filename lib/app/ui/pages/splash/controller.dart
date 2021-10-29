@@ -3,6 +3,7 @@ import 'package:clean_arc_flutter/app/infrastructure/contract/base_controller.da
 import 'package:clean_arc_flutter/app/misc/user_data.dart';
 import 'package:clean_arc_flutter/app/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashController extends BaseController {
   UserData? _userData;
@@ -20,6 +21,7 @@ class SplashController extends BaseController {
     var _duration = new Duration(seconds: 1);
     return new Timer(_duration, () {
       Navigator.pushReplacementNamed(getContext(), Pages.login);
+      Modular.to.pushReplacementNamed('/login');
     });
   }
 }
