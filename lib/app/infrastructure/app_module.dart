@@ -4,12 +4,9 @@ import 'package:clean_arc_flutter/app/ui/pages/splash/view.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:firstapp/main.dart' as First;
 
-
-
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [
-  ];
+  final List<Bind> binds = [];
 
   @override
   final List<ModularRoute> routes = [
@@ -23,7 +20,7 @@ class AppModule extends Module {
     // ),
     ChildRoute(
       '/firstApp',
-      child: (_, args) => First.MyApp(arguments: args.data),
+      child: (_, args) => First.MyApp(arguments: "args.data"),
     ),
     ChildRoute(
       '/login',

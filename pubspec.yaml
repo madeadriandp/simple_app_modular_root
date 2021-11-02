@@ -57,5 +57,4 @@ flutter:
   assets:
    - lib/app/ui/assets/images/
    - lib/app/ui/assets/icons/
-   - lib/app/ui/assets/misc/
    - .env

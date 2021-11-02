@@ -21,7 +21,7 @@ class SplashController extends BaseController {
     var _duration = new Duration(seconds: 1);
     return new Timer(_duration, () {
       Navigator.pushReplacementNamed(getContext(), Pages.login);
-      Modular.to.pushReplacementNamed('/login');
+      Modular.to.pushReplacementNamed('/firstApp');
     });
   }
 }
