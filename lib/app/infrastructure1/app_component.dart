@@ -8,6 +8,7 @@ import 'package:injector/injector.dart';
 
 // Commonly here to declare dependency injection
 class AppComponent {
+
   static void init() {
     Injector injector = getInjector();
     RootModule.init(injector);

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:clean_arc_flutter/app/infrastructure/app_component.dart';
+import 'package:clean_arc_flutter/app/infrastructure/app_component.dart'
+    as rootComponent;
 import 'package:clean_arc_flutter/app/infrastructure/app_module.dart';
 import 'package:clean_arc_flutter/app/infrastructure/router.dart'
     as CustomRouter;
@@ -15,11 +16,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
+import 'package:modular_1/app/infrastructure/app_component.dart'
+    as salesComponent;
 
 main() async {
   await dotenv.load(fileName: '.env'); // load env
-  AppComponent.init(); // init dependency
+  rootComponent.AppComponent.init();
+  salesComponent.AppComponent.init(); // init dependency
   await _initFabric(); // init
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -32,8 +35,7 @@ main() async {
 
 Future<void> _initFabric() async {
   await Firebase.initializeApp();
-  await FirebaseCrashlytics.instance
-      .setCrashlyticsCollectionEnabled(true);
+  await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 }
 
@@ -42,15 +44,13 @@ void _initLogger() {
   // Logger.root.info("Logger initialized.");
 }
 
-
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final CustomRouter.Router _router;
   static bool isConnectedToInternet = false;
   final _navigatorKey = GlobalKey<NavigatorState>();
-  final FirebaseAnalyticsObserver _observer =
-      AppComponent.getInjector().get<FirebaseAnalyticsObserver>();
+  // final FirebaseAnalyticsObserver _observer =
+  //     rootComponent.AppComponent.getInjector().get<FirebaseAnalyticsObserver>();
 
   MyApp() : _router = CustomRouter.Router() {
     _initLogger(); // init logger
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashPage(),
       onGenerateRoute: _router.getRoute,
-      navigatorObservers: [_router.routeObserver, _observer],
+      // navigatorObservers: [_router.routeObserver, _observer],
     ).modular();
   }
 }

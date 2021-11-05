@@ -11,7 +11,7 @@ class HomePage extends View {
       new _HomePageState(AppComponent.getInjector().get<HomeController>());
 }
 
-class _HomePageState extends ViewState<HomePage, HomeController> 
+class _HomePageState extends ViewState<HomePage, HomeController>
     with WidgetsBindingObserver {
   _HomePageState(HomeController controller) : super(controller);
 
@@ -35,7 +35,9 @@ class _HomePageState extends ViewState<HomePage, HomeController>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SearchPage(Nama: controller.sp.name!,)
+              SearchPage(
+                Nama: "go to sub",
+              )
             ],
           ),
         ),

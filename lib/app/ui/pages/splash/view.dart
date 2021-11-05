@@ -6,8 +6,8 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 class SplashPage extends View {
   SplashPage({Key? key}) : super(key: key);
   @override
-  _SplashPageState createState() =>
-      new _SplashPageState(AppComponent.getInjector().get<SplashController>());
+  _SplashPageState createState() => new _SplashPageState(
+      AppComponent.getInjector().get<SplashController>(dependencyName: "root"));
 }
 
 class _SplashPageState extends ViewState<SplashPage, SplashController> {

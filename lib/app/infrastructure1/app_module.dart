@@ -24,7 +24,7 @@ class AppModule extends Module {
     ),
     ChildRoute(
       '/login',
-      child: (_, __) => First.MyApp(),
+      child: (_, __) => LoginPage(),
     ),
     ChildRoute(
       '/MainPage',

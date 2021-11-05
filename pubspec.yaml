@@ -32,12 +32,12 @@ dependencies:
   shared_preferences: ^2.0.6
   flutter_modular: ^4.0.1
   dio_http_cache: ^0.3.0
-  firstapp:
+  sfid_mobile:
     git:
-      url: https://github.com/muflihmajid/firstappflutter
+      url: https://BSI80091@dev.azure.com/BSI80091/PoC%20Merge%20KTB%20Apps/_git/PoC%20Merge%20KTB%20Apps
   dio: ^4.0.0
   connectivity: ^3.0.6
-  permission_handler: ^8.1.4+2
+  permission_handler: ^8.1.4+1
   injector: ^2.0.0
   path_provider: ^2.0.2
   logging: ^1.0.1

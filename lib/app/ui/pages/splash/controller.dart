@@ -20,8 +20,8 @@ class SplashController extends BaseController {
   _navigate() {
     var _duration = new Duration(seconds: 1);
     return new Timer(_duration, () {
-      Navigator.pushReplacementNamed(getContext(), Pages.login);
-      Modular.to.pushReplacementNamed('/firstApp');
+      // Navigator.pushReplacementNamed(getContext(), Pages.login);
+      Modular.to.pushReplacementNamed('/MainPage');
     });
   }
 }

@@ -11,29 +11,23 @@ import 'package:injector/injector.dart';
 class ControllerModule {
   static void init(Injector injector) {
     injector.registerDependency<SplashController>(() {
-      return SplashController(
-        injector.get(dependencyName: "serviceUserData"),
-      );
-    }, dependencyName: "root");
+      return SplashController(injector.get<UserData>());
+    });
     injector.registerDependency<MainController>(() {
-      return MainController(
-          injector.get<UserData>(dependencyName: "serviceUserData"));
+      return MainController(injector.get<UserData>());
     });
     injector.registerDependency<HomeController>(() {
-      return HomeController(
-          injector.get<UserData>(dependencyName: "serviceUserData"));
+      return HomeController(injector.get<UserData>());
     });
     injector.registerDependency<MidController>(() {
-      return MidController(
-          injector.get<UserData>(dependencyName: "serviceUserData"));
+      return MidController(injector.get<UserData>());
     });
     injector.registerDependency<ProfileController>(() {
-      return ProfileController(
-          injector.get<UserData>(dependencyName: "serviceUserData"));
+      return ProfileController(injector.get<UserData>());
     });
     injector.registerDependency<LoginController>(() {
-      return LoginController(injector.get<LoginPresenter>(),
-          injector.get<UserData>(dependencyName: "serviceUserData"));
+      return LoginController(
+          injector.get<LoginPresenter>(), injector.get<UserData>());
     });
   }
 }

@@ -9,6 +9,7 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import '../app_component.dart';
 import '../view_utils.dart';
 
+
 class BaseController extends Controller {
   EventBus _eventBus = AppComponent.getInjector().get<EventBus>();
   bool _internetAvailable = true;

@@ -2,6 +2,7 @@ import 'package:clean_arc_flutter/data/infrastructures/time_converter_interface.
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+
 class TimeConverter extends TimeConverterInterface {
   TimeConverter() {
     timeago.setLocaleMessages('id', timeago.IdMessages());

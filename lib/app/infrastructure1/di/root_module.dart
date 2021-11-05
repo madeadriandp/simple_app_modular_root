@@ -5,12 +5,12 @@ import 'package:clean_arc_flutter/app/infrastructure/encrypter.dart';
 import 'package:clean_arc_flutter/app/infrastructure/endpoints.dart';
 import 'package:clean_arc_flutter/app/infrastructure/persistences/api_service.dart';
 import 'package:clean_arc_flutter/app/misc/user_data.dart';
-// import 'package:firebase_analytics/firebase_analytics.dart';
-// import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:event_bus/event_bus.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injector/injector.dart';
@@ -20,21 +20,18 @@ class RootModule {
   static void init(Injector injector) {
     injector.registerSingleton<Endpoints>(
         () => Endpoints(dotenv.env['BASE_URL'] ?? ""));
-    injector.registerDependency<TimeConverter>(() => TimeConverter(),
-        dependencyName: "serviceTimeConverter");
-    injector.registerSingleton<UserData>(
-        () => UserData(
-            injector.get<Encrypter>(dependencyName: "serviceEncrypter")),
-        dependencyName: "serviceUserData");
-    // injector
-    //     .registerSingleton<FirebaseMessaging>(() => FirebaseMessaging.instance);
+    injector.registerDependency<TimeConverter>(() => TimeConverter());
+    injector
+        .registerSingleton<UserData>(() => UserData(injector.get<Encrypter>()));
+    injector
+        .registerSingleton<FirebaseMessaging>(() => FirebaseMessaging.instance);
 
     injector.registerDependency<Dio>(() {
       var dio = Dio();
       dio.options.connectTimeout = 60000;
       dio.options.receiveTimeout = 60000;
 
-      var userData = injector.get<UserData>(dependencyName: "serviceUserData");
+      var userData = injector.get<UserData>();
       var endpoints = injector.get<Endpoints>();
 
       // use for log response and request data
@@ -56,28 +53,29 @@ class RootModule {
 
       (dio.transformer as DefaultTransformer).jsonDecodeCallback = parseJson;
       return dio;
-    }, dependencyName: "serviceDio");
+    });
 
     injector.registerSingleton<EventBus>(() {
       return EventBus();
-    }, dependencyName: "serviceEventBus");
+    });
 
     injector.registerDependency<ApiService>(() {
       return ApiService(injector.get<Dio>(), injector.get<EventBus>());
-    }, dependencyName: "serviceApiService");
+    });
 
-    // injector.registerSingleton<FirebaseAnalytics>(() {
-    //   return FirebaseAnalytics();
-    // });
 
-    // injector.registerSingleton<FirebaseAnalyticsObserver>(() {
-    //   return FirebaseAnalyticsObserver(
-    //       analytics: injector.get<FirebaseAnalytics>());
-    // });
+    injector.registerSingleton<FirebaseAnalytics>(() {
+      return FirebaseAnalytics();
+    });
+
+    injector.registerSingleton<FirebaseAnalyticsObserver>(() {
+      return FirebaseAnalyticsObserver(
+          analytics: injector.get<FirebaseAnalytics>());
+    });
 
     injector.registerDependency<Encrypter>(() {
       return Encrypter();
-    }, dependencyName: "serviceEncrypter");
+    });
   }
 
   static parseAndDecode(String response) {
