@@ -5,7 +5,8 @@ import 'package:clean_arc_flutter/app/ui/pages/splash/view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:modular_1/main.dart' as First;
+// import 'package:modular_1/main.dart' as First;
+import 'package:sfid_mobile/app/main.dart' as First;
 
 class Router extends Module {
   late RouteObserver<PageRoute> routeObserver;

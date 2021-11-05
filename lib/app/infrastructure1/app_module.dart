@@ -2,7 +2,8 @@ import 'package:clean_arc_flutter/app/ui/pages/login/view.dart';
 import 'package:clean_arc_flutter/app/ui/pages/main/view.dart';
 import 'package:clean_arc_flutter/app/ui/pages/splash/view.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:modular_1/main.dart' as First;
+// import 'package:modular_1/main.dart' as First;
+import 'package:sfid_mobile/app/main.dart' as First;
 
 class AppModule extends Module {
   @override

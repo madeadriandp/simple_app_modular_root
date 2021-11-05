@@ -5,6 +5,7 @@ import 'package:clean_arc_flutter/app/infrastructure/app_component.dart'
 import 'package:clean_arc_flutter/app/infrastructure/app_module.dart';
 import 'package:clean_arc_flutter/app/infrastructure/router.dart'
     as CustomRouter;
+import 'package:clean_arc_flutter/app/ui/pages/main/view.dart';
 import 'package:clean_arc_flutter/app/ui/pages/splash/view.dart';
 import 'package:clean_arc_flutter/app/ui/res/generated/i18n.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -16,8 +17,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:modular_1/app/infrastructure/app_component.dart'
+import 'package:sfid_mobile/app/infrastructures/app_component.dart'
     as salesComponent;
+import 'package:sfid_mobile/app/main.dart' as First;
 
 main() async {
   await dotenv.load(fileName: '.env'); // load env

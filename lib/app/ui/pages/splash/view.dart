@@ -21,7 +21,7 @@ class _SplashPageState extends ViewState<SplashPage, SplashController> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     splashImage = Image.asset(
-      'lib/app/ui/assets/images/Lancong.png',
+      'lib/app/ui/assets/images/detail_report_camera.png',
       width: 400,
       height: 400,
     );

@@ -12,7 +12,7 @@ class ControllerModule {
   static void init(Injector injector) {
     injector.registerDependency<SplashController>(() {
       return SplashController(
-        injector.get(dependencyName: "serviceUserData"),
+        injector.get<UserData>(dependencyName: "serviceUserData"),
       );
     }, dependencyName: "root");
     injector.registerDependency<MainController>(() {

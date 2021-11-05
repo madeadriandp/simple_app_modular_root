@@ -43,7 +43,7 @@ class _LoginPageState extends ViewState<LoginPage, LoginController>
             Container(
               padding: EdgeInsets.all(10.0),
               child: Image(
-                image: AssetImage('lib/app/ui/assets/images/Lancong.png'),
+                image: AssetImage('lib/app/ui/assets/images/dealing_email.png'),
               ),
               height: 162,
               width: 162,
